@@ -138,4 +138,78 @@ describe("useSearch", () => {
 
     expect(result.current.unit).toBe("F");
   });
+
+  it("should handle forecast list correctly", () => {
+    const mockWeatherData = {
+      forecast: {
+        forecastday: [
+          {
+            hour: [
+              {
+                time: "2025-02-09 22:00",
+                time_epoch: 1,
+                temp_c: 20,
+                temp_f: 68,
+                condition: { text: "Clear", icon: "//icon.png" },
+              },
+              {
+                time: "2025-02-09 23:00",
+                time_epoch: 2,
+                temp_c: 19,
+                temp_f: 66,
+                condition: { text: "Cloudy", icon: "//icon.png" },
+              },
+              {
+                time: "2025-02-09 00:00",
+                time_epoch: 3,
+                temp_c: 18,
+                temp_f: 64,
+                condition: { text: "Rainy", icon: "//icon.png" },
+              },
+            ],
+          },
+          {
+            hour: [
+              {
+                time: "2025-02-10 00:00",
+                time_epoch: 1,
+                temp_c: 20,
+                temp_f: 68,
+                condition: { text: "Clear", icon: "//icon.png" },
+              },
+              {
+                time: "2025-02-10 01:00",
+                time_epoch: 2,
+                temp_c: 19,
+                temp_f: 66,
+                condition: { text: "Cloudy", icon: "//icon.png" },
+              },
+              {
+                time: "2025-02-10 00:00",
+                time_epoch: 3,
+                temp_c: 18,
+                temp_f: 64,
+                condition: { text: "Rainy", icon: "//icon.png" },
+              },
+            ],
+          },
+        ],
+      },
+    };
+
+    (useWeatherAPI as jest.Mock).mockReturnValue({
+      weatherData: mockWeatherData,
+      loading: false,
+      error: null,
+      submit: jest.fn(),
+    });
+
+    const { result } = renderHook(() => useSearch());
+    var returnedValue;
+    act(() => {
+      returnedValue = result.current.handleForecastList(21);
+    });
+
+    expect(returnedValue).toHaveLength(5);
+  });
 });

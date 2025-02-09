@@ -21,6 +21,7 @@ describe("WeatherScreen", () => {
       currentLoading: false,
       currentError: null,
       suspendedListEnabled: true,
+      handleForecastList: jest.fn(),
       handleSearch: jest.fn(),
       handleSuggestionPress: jest.fn(),
       handleUnitChange: jest.fn(),
@@ -42,6 +43,7 @@ describe("WeatherScreen", () => {
       currentLoading: false,
       currentError: null,
       suspendedListEnabled: true,
+      handleForecastList: jest.fn(),
       handleSearch: mockHandleSearch,
       handleSuggestionPress: jest.fn(),
       handleUnitChange: jest.fn(),
@@ -70,6 +72,7 @@ describe("WeatherScreen", () => {
       currentLoading: false,
       currentError: null,
       suspendedListEnabled: true,
+      handleForecastList: jest.fn(),
       handleSearch: jest.fn(),
       handleSuggestionPress: mockHandleSuggestionPress,
       handleUnitChange: jest.fn(),
@@ -84,12 +87,6 @@ describe("WeatherScreen", () => {
   });
 
   it("renders the weather data correctly", () => {
-    const now = new Date();
-    const twoHoursAgo = new Date();
-    const sixHoursLater = new Date();
-    twoHoursAgo.setHours(now.getHours() - 2);
-    sixHoursLater.setHours(now.getHours() + 6);
-
     (useSearch as jest.Mock).mockReturnValue({
       query: "",
       unit: "F",
@@ -112,38 +109,6 @@ describe("WeatherScreen", () => {
                 mintemp_c: 20,
                 mintemp_f: 68,
               },
-              hour: [
-                {
-                  time: twoHoursAgo.toISOString(),
-                  time_epoch: twoHoursAgo.getTime(),
-                  temp_c: 26,
-                  temp_f: 78,
-                  condition: {
-                    text: "Cloudy",
-                    icon: "//cdn.weather.com/cloudy.png",
-                  },
-                },
-                {
-                  time: now.toISOString(),
-                  time_epoch: now.getTime(),
-                  temp_c: 26,
-                  temp_f: 78,
-                  condition: {
-                    text: "Cloudy",
-                    icon: "//cdn.weather.com/cloudy.png",
-                  },
-                },
-                {
-                  time: sixHoursLater.toISOString(),
-                  time_epoch: sixHoursLater.getTime(),
-                  temp_c: 26,
-                  temp_f: 78,
-                  condition: {
-                    text: "Cloudy",
-                    icon: "//cdn.weather.com/cloudy.png",
-                  },
-                },
-              ],
             },
           ],
         },
@@ -152,6 +117,29 @@ describe("WeatherScreen", () => {
       currentError: null,
       suspendedListEnabled: false,
       handleSearch: jest.fn(),
+      handleForecastList: jest.fn().mockReturnValue([
+        {
+          time: "2025-02-09 22:00",
+          time_epoch: 1,
+          temp_c: 20,
+          temp_f: 68,
+          condition: { text: "Clear", icon: "//icon.png" },
+        },
+        {
+          time: "2025-02-09 23:00",
+          time_epoch: 2,
+          temp_c: 19,
+          temp_f: 66,
+          condition: { text: "Cloudy", icon: "//icon.png" },
+        },
+        {
+          time: "2025-02-09 00:00",
+          time_epoch: 3,
+          temp_c: 18,
+          temp_f: 64,
+          condition: { text: "Rainy", icon: "//icon.png" },
+        },
+      ]),
       handleSuggestionPress: jest.fn(),
       handleUnitChange: jest.fn(),
     });
@@ -174,6 +162,7 @@ describe("WeatherScreen", () => {
       currentError: null,
       suspendedListEnabled: true,
       handleSearch: jest.fn(),
+      handleForecastList: jest.fn(),
       handleSuggestionPress: jest.fn(),
       handleUnitChange: mockHandleUnitChange,
     });
@@ -197,6 +186,7 @@ describe("WeatherScreen", () => {
       currentLoading: false,
       currentError: null,
       suspendedListEnabled: true,
+      handleForecastList: jest.fn(),
       handleSearch: mockHandleSearch,
       handleSuggestionPress: jest.fn(),
       handleUnitChange: jest.fn(),
@@ -220,6 +210,7 @@ describe("WeatherScreen", () => {
       currentLoading: true,
       currentError: "mockError",
       suspendedListEnabled: true,
+      handleForecastList: jest.fn(),
       handleSearch: jest.fn(),
       handleSuggestionPress: jest.fn(),
       handleUnitChange: jest.fn(),

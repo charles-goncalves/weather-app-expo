@@ -25,6 +25,7 @@ const WeatherScreen = () => {
     currentWeather,
     currentLoading,
     currentError,
+    handleForecastList,
     handleSearch,
     handleSuggestionPress,
     handleUnitChange,
@@ -64,19 +65,10 @@ const WeatherScreen = () => {
     };
     temp_c: number;
   }) => {
-    const forecastDate = new Date(item.time);
-    const forecastHour = forecastDate.getHours();
-    const currentHour = now.getHours();
-
-    if (forecastHour < currentHour || forecastHour > currentHour + 4)
-      return undefined;
-
     return (
       <View style={styles.forecastItem} key={item.time_epoch}>
         <View>
-          <Text style={styles.suggestionText}>
-            {forecastDate.getHours()}:00
-          </Text>
+          <Text style={styles.suggestionText}>{item.time.split(" ")[1]}</Text>
           <Text style={styles.suggestionText}>{item.condition.text}</Text>
         </View>
         <View style={styles.forecastSubItem}>
@@ -202,7 +194,7 @@ const WeatherScreen = () => {
           </View>
           <Text style={styles.weatherTitle}>Forecast:</Text>
           <View style={styles.forecastList}>
-            {currentWeather.forecast.forecastday[0].hour.map((item: any) =>
+            {handleForecastList(now.getHours()).map((item: any) =>
               renderForecast(item)
             )}
           </View>

@@ -71,7 +71,7 @@ const useSearch = () => {
     submit: currentSubmit,
   } = useWeatherAPI<IForecastAPIResponse>(
     WEATHER_API_CURRENT_URL,
-    selectedLocation ? { q: selectedLocation } : undefined
+    selectedLocation ? { q: selectedLocation, days: "2" } : undefined
   );
 
   const handleSearch = (text: string) => {
@@ -89,6 +89,36 @@ const useSearch = () => {
     currentSubmit();
   };
 
+  const handleForecastList = (currentHour: number) => {
+    if (!currentWeather) return [];
+
+    const currentDayHours = currentWeather.forecast.forecastday[0].hour.filter(
+      (item) => {
+        const forecastDate = new Date(item.time);
+        const forecastHour = forecastDate.getHours();
+
+        if (forecastHour <= currentHour || forecastHour > currentHour + 4)
+          return undefined;
+
+        return item;
+      }
+    );
+
+    const amountNextDay = 5 - currentDayHours.length;
+    const nextDayHours = amountNextDay
+      ? currentWeather.forecast.forecastday[1].hour.filter((item) => {
+          const forecastDate = new Date(item.time);
+          const forecastHour = forecastDate.getHours();
+
+          if (forecastHour >= amountNextDay) return undefined;
+
+          return item;
+        })
+      : [];
+
+    return currentDayHours.concat(nextDayHours);
+  };
+
   return {
     query,
     unit,
@@ -99,6 +129,7 @@ const useSearch = () => {
     currentLoading,
     currentError,
     suspendedListEnabled,
+    handleForecastList,
     handleSearch,
     handleSuggestionPress,
     handleUnitChange: (unit: TemperatureUnit) => setUnit(unit),

@@ -699,8 +699,74 @@ exports[`WeatherScreen renders the weather data correctly 1`] = `
               }
             }
           >
-            11
-            :00
+            22:00
+          </Text>
+          <Text
+            style={
+              {
+                "fontSize": 16,
+              }
+            }
+          >
+            Clear
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "fontSize": 16,
+              }
+            }
+          >
+            68°
+          </Text>
+          <Image
+            source={
+              {
+                "uri": "https://icon.png",
+              }
+            }
+            style={
+              {
+                "height": 30,
+                "marginLeft": 5,
+                "width": 30,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderBottomColor": "black",
+            "borderBottomWidth": 1,
+            "borderRadius": 10,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "padding": 12,
+          }
+        }
+      >
+        <View>
+          <Text
+            style={
+              {
+                "fontSize": 16,
+              }
+            }
+          >
+            23:00
           </Text>
           <Text
             style={
@@ -728,12 +794,79 @@ exports[`WeatherScreen renders the weather data correctly 1`] = `
               }
             }
           >
-            78°
+            66°
           </Text>
           <Image
             source={
               {
-                "uri": "https://cdn.weather.com/cloudy.png",
+                "uri": "https://icon.png",
+              }
+            }
+            style={
+              {
+                "height": 30,
+                "marginLeft": 5,
+                "width": 30,
+              }
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderBottomColor": "black",
+            "borderBottomWidth": 1,
+            "borderRadius": 10,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "padding": 12,
+          }
+        }
+      >
+        <View>
+          <Text
+            style={
+              {
+                "fontSize": 16,
+              }
+            }
+          >
+            00:00
+          </Text>
+          <Text
+            style={
+              {
+                "fontSize": 16,
+              }
+            }
+          >
+            Rainy
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "fontSize": 16,
+              }
+            }
+          >
+            64°
+          </Text>
+          <Image
+            source={
+              {
+                "uri": "https://icon.png",
               }
             }
             style={
