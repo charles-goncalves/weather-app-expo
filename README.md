@@ -1,6 +1,6 @@
 # weather-app-expo
 
-A simple Weather App develop with React Native and Expo framework.
+A simple Weather App developed with React Native and Expo framework.
 
 # Welcome to your Expo app 👋
 
