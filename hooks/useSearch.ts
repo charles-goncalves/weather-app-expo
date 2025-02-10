@@ -97,7 +97,7 @@ const useSearch = () => {
         const forecastDate = new Date(item.time);
         const forecastHour = forecastDate.getHours();
 
-        if (forecastHour <= currentHour || forecastHour > currentHour + 4)
+        if (forecastHour <= currentHour || forecastHour > currentHour + 5)
           return undefined;
 
         return item;
