@@ -1,4 +1,3 @@
-import { fetch } from "expo/fetch";
 import { WEATHER_API_KEY } from "./constants";
 import axios from "axios";
 
