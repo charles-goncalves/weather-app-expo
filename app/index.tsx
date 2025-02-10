@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Image,
   SafeAreaView,
+  ScrollView,
 } from "react-native";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import useSearch from "../hooks/useSearch";
@@ -137,69 +138,72 @@ const WeatherScreen = () => {
           </View>
         )}
       </View>
+      <ScrollView>
+        {currentLoading && (
+          <ActivityIndicator
+            size="large"
+            color="#000000"
+            testID="loading-indicator"
+          />
+        )}
 
-      {currentLoading && (
-        <ActivityIndicator
-          size="large"
-          color="#000000"
-          testID="loading-indicator"
-        />
-      )}
+        {currentError && (
+          <Text style={styles.error}>Error: {currentError}</Text>
+        )}
 
-      {currentError && <Text style={styles.error}>Error: {currentError}</Text>}
-
-      {currentWeather && (
-        <View style={styles.sectionContainer}>
-          <Text style={styles.weatherTitle}>Current Weather:</Text>
-          <View style={styles.weatherContainer}>
-            <View style={styles.weatherDataContainer}>
-              <Text style={styles.weatherLocation}>
-                {currentWeather.location.name},{" "}
-                {currentWeather.location.country}
-              </Text>
-              <Text style={styles.weatherRegion}>
-                {currentWeather.location.region}
-              </Text>
-              <Text style={styles.weatherCondition}>
-                {currentWeather.current.condition.text}
-              </Text>
-              <Text style={styles.weatherRegion}>
-                H:{" "}
-                {renderTemperature(
-                  currentWeather.forecast.forecastday[0].day.maxtemp_c,
-                  currentWeather.forecast.forecastday[0].day.maxtemp_f
-                )}
-                {", "}
-                L:{" "}
-                {renderTemperature(
-                  currentWeather.forecast.forecastday[0].day.mintemp_c,
-                  currentWeather.forecast.forecastday[0].day.mintemp_f
-                )}
-              </Text>
+        {currentWeather && (
+          <View style={styles.sectionContainer}>
+            <Text style={styles.weatherTitle}>Current Weather:</Text>
+            <View style={styles.weatherContainer}>
+              <View style={styles.weatherDataContainer}>
+                <Text style={styles.weatherLocation}>
+                  {currentWeather.location.name},{" "}
+                  {currentWeather.location.country}
+                </Text>
+                <Text style={styles.weatherRegion}>
+                  {currentWeather.location.region}
+                </Text>
+                <Text style={styles.weatherCondition}>
+                  {currentWeather.current.condition.text}
+                </Text>
+                <Text style={styles.weatherRegion}>
+                  H:{" "}
+                  {renderTemperature(
+                    currentWeather.forecast.forecastday[0].day.maxtemp_c,
+                    currentWeather.forecast.forecastday[0].day.maxtemp_f
+                  )}
+                  {", "}
+                  L:{" "}
+                  {renderTemperature(
+                    currentWeather.forecast.forecastday[0].day.mintemp_c,
+                    currentWeather.forecast.forecastday[0].day.mintemp_f
+                  )}
+                </Text>
+              </View>
+              <View style={styles.imageContainer}>
+                <Image
+                  source={{
+                    uri: "https:" + currentWeather.current.condition.icon,
+                  }}
+                  style={styles.weatherIcon}
+                />
+                <Text style={styles.weatherTemperature}>
+                  {renderTemperature(
+                    currentWeather.current.temp_c,
+                    currentWeather.current.temp_f
+                  )}
+                </Text>
+              </View>
             </View>
-            <View style={styles.imageContainer}>
-              <Image
-                source={{
-                  uri: "https:" + currentWeather.current.condition.icon,
-                }}
-                style={styles.weatherIcon}
-              />
-              <Text style={styles.weatherTemperature}>
-                {renderTemperature(
-                  currentWeather.current.temp_c,
-                  currentWeather.current.temp_f
-                )}
-              </Text>
+            <Text style={styles.weatherTitle}>Forecast:</Text>
+            <View style={styles.forecastList}>
+              {handleForecastList(now.getHours()).map((item: any) =>
+                renderForecast(item)
+              )}
             </View>
           </View>
-          <Text style={styles.weatherTitle}>Forecast:</Text>
-          <View style={styles.forecastList}>
-            {handleForecastList(now.getHours()).map((item: any) =>
-              renderForecast(item)
-            )}
-          </View>
-        </View>
-      )}
+        )}
+      </ScrollView>
     </SafeAreaView>
   );
 };

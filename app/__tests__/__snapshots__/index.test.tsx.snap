@@ -292,6 +292,9 @@ exports[`WeatherScreen renders correctly 1`] = `
       </Text>
     </View>
   </View>
+  <RCTScrollView>
+    <View />
+  </RCTScrollView>
 </RCTSafeAreaView>
 `;
 
@@ -535,351 +538,355 @@ exports[`WeatherScreen renders the weather data correctly 1`] = `
       />
     </View>
   </View>
-  <View
-    style={
-      {
-        "margin": 20,
-      }
-    }
-  >
-    <Text
-      style={
-        {
-          "fontSize": 24,
-          "fontWeight": "bold",
-          "marginBottom": 8,
-        }
-      }
-    >
-      Current Weather:
-    </Text>
-    <View
-      style={
-        {
-          "alignItems": "center",
-          "borderColor": "black",
-          "borderRadius": 10,
-          "borderWidth": 1,
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-          "marginVertical": 16,
-          "padding": 12,
-        }
-      }
-    >
+  <RCTScrollView>
+    <View>
       <View
         style={
           {
-            "maxWidth": "70%",
+            "margin": 20,
           }
         }
       >
         <Text
           style={
             {
-              "fontSize": 20,
+              "fontSize": 24,
               "fontWeight": "bold",
-            }
-          }
-        >
-          New York
-          ,
-           
-          USA
-        </Text>
-        <Text
-          style={
-            {
-              "fontSize": 16,
               "marginBottom": 8,
             }
           }
         >
-          NY
+          Current Weather:
         </Text>
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "borderColor": "black",
+              "borderRadius": 10,
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginVertical": 16,
+              "padding": 12,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "maxWidth": "70%",
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "fontSize": 20,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              New York
+              ,
+               
+              USA
+            </Text>
+            <Text
+              style={
+                {
+                  "fontSize": 16,
+                  "marginBottom": 8,
+                }
+              }
+            >
+              NY
+            </Text>
+            <Text
+              style={
+                {
+                  "fontSize": 18,
+                  "marginBottom": 8,
+                }
+              }
+            >
+              Sunny
+            </Text>
+            <Text
+              style={
+                {
+                  "fontSize": 16,
+                  "marginBottom": 8,
+                }
+              }
+            >
+              H:
+               
+              86°
+              , 
+              L:
+               
+              68°
+            </Text>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "justifyContent": "flex-start",
+              }
+            }
+          >
+            <Image
+              source={
+                {
+                  "uri": "https://cdn.weather.com/icon.png",
+                }
+              }
+              style={
+                {
+                  "height": 90,
+                  "width": 90,
+                }
+              }
+            />
+            <Text
+              style={
+                {
+                  "fontSize": 20,
+                }
+              }
+            >
+              77°
+            </Text>
+          </View>
+        </View>
         <Text
           style={
             {
-              "fontSize": 18,
+              "fontSize": 24,
+              "fontWeight": "bold",
               "marginBottom": 8,
             }
           }
         >
-          Sunny
+          Forecast:
         </Text>
-        <Text
+        <View
           style={
             {
-              "fontSize": 16,
-              "marginBottom": 8,
+              "borderBottomWidth": 0,
+              "borderColor": "black",
+              "borderRadius": 10,
+              "borderWidth": 1,
+              "marginTop": 8,
             }
           }
         >
-          H:
-           
-          86°
-          , 
-          L:
-           
-          68°
-        </Text>
-      </View>
-      <View
-        style={
-          {
-            "alignItems": "center",
-            "justifyContent": "flex-start",
-          }
-        }
-      >
-        <Image
-          source={
-            {
-              "uri": "https://cdn.weather.com/icon.png",
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "borderBottomColor": "black",
+                "borderBottomWidth": 1,
+                "borderRadius": 10,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+              }
             }
-          }
-          style={
-            {
-              "height": 90,
-              "width": 90,
+          >
+            <View>
+              <Text
+                style={
+                  {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                22:00
+              </Text>
+              <Text
+                style={
+                  {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                Clear
+              </Text>
+            </View>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                68°
+              </Text>
+              <Image
+                source={
+                  {
+                    "uri": "https://icon.png",
+                  }
+                }
+                style={
+                  {
+                    "height": 30,
+                    "marginLeft": 5,
+                    "width": 30,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "borderBottomColor": "black",
+                "borderBottomWidth": 1,
+                "borderRadius": 10,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+              }
             }
-          }
-        />
-        <Text
-          style={
-            {
-              "fontSize": 20,
+          >
+            <View>
+              <Text
+                style={
+                  {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                23:00
+              </Text>
+              <Text
+                style={
+                  {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                Cloudy
+              </Text>
+            </View>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                66°
+              </Text>
+              <Image
+                source={
+                  {
+                    "uri": "https://icon.png",
+                  }
+                }
+                style={
+                  {
+                    "height": 30,
+                    "marginLeft": 5,
+                    "width": 30,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "borderBottomColor": "black",
+                "borderBottomWidth": 1,
+                "borderRadius": 10,
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "padding": 12,
+              }
             }
-          }
-        >
-          77°
-        </Text>
+          >
+            <View>
+              <Text
+                style={
+                  {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                00:00
+              </Text>
+              <Text
+                style={
+                  {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                Rainy
+              </Text>
+            </View>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                style={
+                  {
+                    "fontSize": 16,
+                  }
+                }
+              >
+                64°
+              </Text>
+              <Image
+                source={
+                  {
+                    "uri": "https://icon.png",
+                  }
+                }
+                style={
+                  {
+                    "height": 30,
+                    "marginLeft": 5,
+                    "width": 30,
+                  }
+                }
+              />
+            </View>
+          </View>
+        </View>
       </View>
     </View>
-    <Text
-      style={
-        {
-          "fontSize": 24,
-          "fontWeight": "bold",
-          "marginBottom": 8,
-        }
-      }
-    >
-      Forecast:
-    </Text>
-    <View
-      style={
-        {
-          "borderBottomWidth": 0,
-          "borderColor": "black",
-          "borderRadius": 10,
-          "borderWidth": 1,
-          "marginTop": 8,
-        }
-      }
-    >
-      <View
-        style={
-          {
-            "alignItems": "center",
-            "borderBottomColor": "black",
-            "borderBottomWidth": 1,
-            "borderRadius": 10,
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-            "padding": 12,
-          }
-        }
-      >
-        <View>
-          <Text
-            style={
-              {
-                "fontSize": 16,
-              }
-            }
-          >
-            22:00
-          </Text>
-          <Text
-            style={
-              {
-                "fontSize": 16,
-              }
-            }
-          >
-            Clear
-          </Text>
-        </View>
-        <View
-          style={
-            {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "space-between",
-            }
-          }
-        >
-          <Text
-            style={
-              {
-                "fontSize": 16,
-              }
-            }
-          >
-            68°
-          </Text>
-          <Image
-            source={
-              {
-                "uri": "https://icon.png",
-              }
-            }
-            style={
-              {
-                "height": 30,
-                "marginLeft": 5,
-                "width": 30,
-              }
-            }
-          />
-        </View>
-      </View>
-      <View
-        style={
-          {
-            "alignItems": "center",
-            "borderBottomColor": "black",
-            "borderBottomWidth": 1,
-            "borderRadius": 10,
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-            "padding": 12,
-          }
-        }
-      >
-        <View>
-          <Text
-            style={
-              {
-                "fontSize": 16,
-              }
-            }
-          >
-            23:00
-          </Text>
-          <Text
-            style={
-              {
-                "fontSize": 16,
-              }
-            }
-          >
-            Cloudy
-          </Text>
-        </View>
-        <View
-          style={
-            {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "space-between",
-            }
-          }
-        >
-          <Text
-            style={
-              {
-                "fontSize": 16,
-              }
-            }
-          >
-            66°
-          </Text>
-          <Image
-            source={
-              {
-                "uri": "https://icon.png",
-              }
-            }
-            style={
-              {
-                "height": 30,
-                "marginLeft": 5,
-                "width": 30,
-              }
-            }
-          />
-        </View>
-      </View>
-      <View
-        style={
-          {
-            "alignItems": "center",
-            "borderBottomColor": "black",
-            "borderBottomWidth": 1,
-            "borderRadius": 10,
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-            "padding": 12,
-          }
-        }
-      >
-        <View>
-          <Text
-            style={
-              {
-                "fontSize": 16,
-              }
-            }
-          >
-            00:00
-          </Text>
-          <Text
-            style={
-              {
-                "fontSize": 16,
-              }
-            }
-          >
-            Rainy
-          </Text>
-        </View>
-        <View
-          style={
-            {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "space-between",
-            }
-          }
-        >
-          <Text
-            style={
-              {
-                "fontSize": 16,
-              }
-            }
-          >
-            64°
-          </Text>
-          <Image
-            source={
-              {
-                "uri": "https://icon.png",
-              }
-            }
-            style={
-              {
-                "height": 30,
-                "marginLeft": 5,
-                "width": 30,
-              }
-            }
-          />
-        </View>
-      </View>
-    </View>
-  </View>
+  </RCTScrollView>
 </RCTSafeAreaView>
 `;
